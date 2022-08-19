@@ -18,19 +18,19 @@
 
 <div class="container" style="width:85%;">
     <h1>TLC website</h1>
-    <h2>Simmering Finder - Freudenberg FST</h2>
+    <h2>Simmering Finder - Freudenberg</h2>
     <table id="simmering">
         <thead>
         <tr>
-            <th scope="col">articleNo</th>
-            <th scope="col">rankingPct</th>
-            <th scope="col">designname</th>
-            <th scope="col">shaftDiameter</th>
-            <th scope="col">caseDiameter</th>
+            <th scope="col">ranking (%)</th>
+            <th scope="col">Art.Nr. SP | IP</th>
+            <th scope="col">design name</th>
+            <th scope="col">shaft diameter</th>
+            <th scope="col">case diameter</th>
             <th scope="col">width</th>
-            <th scope="col">materialname</th>
+            <th scope="col">material</th>
 <!--            <th scope="col">thumbnail</th>-->
-            <th scope="col">eCatalogLink</th>
+            <th scope="col">eCatalog link</th>
         </tr>
         </thead>
     </table>
@@ -51,13 +51,13 @@ $(document).ready(function() {
        "pagingType": "simple",
        scrollY: 400,
        scrollCollapse: true,
-       order: [[ 0, 'asc' ], [3, 'desc' ]],
+       order: [[ 0, 'desc' ], [3, 'desc' ]],
        ajax: {
-         url: '/simmeringData',
+         url: '/simmeringFinderData',
        },
        columns: [
-           { data: 'articleNo' },
            { data: 'rankingPct' },
+           { data: 'articleNo' },
            { data: 'designname' },
            { data: 'shaftDiameter' },
            { data: 'caseDiameter' },
