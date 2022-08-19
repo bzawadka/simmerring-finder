@@ -3,31 +3,38 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>DataTables Guide</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <!-- Bootstrap 5 JS -->
-  <script src="js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DataTables Guide</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- Bootstrap 5 JS -->
+    <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <div style="margin-top:5%;"></div>
+<div style="margin-top:1%;"></div>
 
-  <div class="container" style="width:60%;">
-    <table id="example">
+<div class="container" style="width:85%;">
+    <h1>TLC website</h1>
+    <h2>Simmering Finder - Freudenberg FST</h2>
+    <table id="simmering">
         <thead>
-            <tr>
-                <th scope="col">USER ID</th>
-                <th scope="col">ID</th>
-                <th scope="col">TITLE</th>
-                <th scope="col">COMPLETED</th>
-            </tr>
+        <tr>
+            <th scope="col">articleNo</th>
+            <th scope="col">rankingPct</th>
+            <th scope="col">designname</th>
+            <th scope="col">shaftDiameter</th>
+            <th scope="col">caseDiameter</th>
+            <th scope="col">width</th>
+            <th scope="col">materialname</th>
+<!--            <th scope="col">thumbnail</th>-->
+            <th scope="col">eCatalogLink</th>
+        </tr>
         </thead>
     </table>
-  </div>
+</div>
 
 <!-- TABLE -->
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
@@ -39,21 +46,25 @@
 <script type="text/javascript" class="init">
 
 $(document).ready(function() {
-  // Create a new DataTable object
-  table = $('#example').DataTable({
+  simmeringTable = $('#simmering').DataTable({
        "lengthMenu": [ [15, 50, 100, -1], [15, 50, 100, "All"] ],
        "pagingType": "simple",
        scrollY: 400,
        scrollCollapse: true,
        order: [[ 0, 'asc' ], [3, 'desc' ]],
        ajax: {
-         url: '/exampleData',
+         url: '/simmeringData',
        },
        columns: [
-           { data: 'userId' },
-           { data: 'id' },
-           { data: 'title' },
-           { data: 'completed' }
+           { data: 'articleNo' },
+           { data: 'rankingPct' },
+           { data: 'designname' },
+           { data: 'shaftDiameter' },
+           { data: 'caseDiameter' },
+           { data: 'width' },
+           { data: 'materialname' },
+<!--           { data: 'thumbnail' },-->
+           { data: 'eCatalogLink' },
          ]
        })
 });

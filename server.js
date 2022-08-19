@@ -12,21 +12,29 @@ app.listen(port, () => {
 });
 
 // Define a route handler for HTTP GET requests
-app.get("/exampleData", function (req, res) {
+app.get("/simmeringData", function (req, res) {
 
-  const url = 'https://jsonplaceholder.typicode.com/todos';
+  const simmeringApiUrl = 'https://simmerring-api-stag.azurewebsites.net/api/SimmerringFinder?apiKey=2c5fe3bd-923e-4d48-a044-9772bc190674';
+  const requestData = {
+     "metricSystem": "Metric",
+     "shaftDiameter": 25,
+     "caseDiameter": 35,
+     "width": 5,
+     "material": "72 NBR 902",
+     "design": "BAUMSL",
+     "dustlip": false
+   };
 
-  // Make a request
-  axios.get(url)
+  axios.post(simmeringApiUrl, requestData)
     .then(response => {
-      // send the collected data back to the client-side DataTable
-      res.json({
-        "data": response.data
-      })
-    })
-    .catch(function (error) {
-       // handle error
-       console.log(error);
-       res.json({"error": error});
-    })
+       // send the collected data back to the client-side DataTable
+       res.json({
+         "data": response.data
+       })
+     })
+     .catch(function (error) {
+        // handle error
+        console.log(error);
+        res.json({"error": error});
+     })
 });
