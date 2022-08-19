@@ -12,10 +12,10 @@ app.listen(port, () => {
 });
 
 // Define a route handler for HTTP GET requests
-app.get("/simmeringFinderData", function (req, res) {
+app.get("/simmeringData", function (req, res) {
 
-  const simmeringFinderApiUrl = 'https://simmerring-api-stag.azurewebsites.net/api/SimmerringFinder?apiKey=2c5fe3bd-923e-4d48-a044-9772bc190674';
-  const sampleRequestData = {
+  const simmeringApiUrl = 'https://simmerring-api-stag.azurewebsites.net/api/SimmerringFinder?apiKey=2c5fe3bd-923e-4d48-a044-9772bc190674';
+  const requestData = {
      "metricSystem": "Metric",
      "shaftDiameter": 25,
      "caseDiameter": 35,
@@ -25,7 +25,7 @@ app.get("/simmeringFinderData", function (req, res) {
      "dustlip": false
    };
 
-  axios.post(simmeringFinderApiUrl, sampleRequestData)
+  axios.post(simmeringApiUrl, requestData)
     .then(response => {
        // send the collected data back to the client-side DataTable
        res.json({
