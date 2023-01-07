@@ -6,20 +6,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DataTables Guide</title>
+    <title>TLC website</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <!-- Bootstrap 5 JS -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
 <div style="margin-top:1%;"></div>
 
+<script>
+    function myFunction() {
+      alert("The form was submitted");
+    }
+</script>
+
 <div class="container" style="width:85%;">
-    <h1>TLC website</h1>
-    <h2>Simmering Finder - Freudenberg</h2>
-    <table id="simmering">
+    <h4>DOBÓR USZCZELNIEŃ - FREUDENBERG SIMMERING SELECTOR</h4>
+    <h5>DANE APLIKACJI</h5>
+    <h6>Dobór odpowiedniego uszczelnienia na podstawie:</h6>
+
+    <form onsubmit="myFunction()">
+        <div class="form-group form-check-inline">
+            <label for="shaftDiameter">Średnica wału - d1 [mm]</label>
+            <input type="number" class="form-control" id="shaftDiameter" aria-describedby="shaftDiameterHelp">
+            <small id="shaftDiameterHelp" class="form-text text-muted">Informacja dot. pomiarów</small>
+        </div>
+        <div class="form-group form-check-inline">
+            <label for="caseDiameter">Średnica oprawy - d2 [mm]</label>
+            <input type="number" class="form-control" id="caseDiameter">
+            <small id="shaftDiameterHelpP" class="form-text text-muted">Informacja dot. pomiarów</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Wyszukaj</button>
+    </form>
+
+    <table id="simmering" class="table">
         <thead>
         <tr>
             <th scope="col">ranking (%)</th>

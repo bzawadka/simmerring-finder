@@ -25,8 +25,12 @@ app.get("/simmeringData", function (req, res) {
      "dustlip": false
    };
 
+  console.log('Calling API of SimmerringFinder');
+
   axios.post(simmeringApiUrl, requestData)
     .then(response => {
+       console.log('Received response form SimmerringFinder');
+
        // send the collected data back to the client-side DataTable
        res.json({
          "data": response.data
